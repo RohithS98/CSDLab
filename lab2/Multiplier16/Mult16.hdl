@@ -1,0 +1,38 @@
+CHIP Mult16{
+	IN a[16], b[16];
+	OUT out1[16], out2[16];
+	
+	PARTS:
+	SingleAnd16(a=a,b=b[0],out[0]=out1[0],out[1..15]=ab0);
+	SingleAnd16(a=a,b=b[1],out=ab1);
+	SingleAnd16(a=a,b=b[2],out=ab2);
+	SingleAnd16(a=a,b=b[3],out=ab3);
+	SingleAnd16(a=a,b=b[4],out=ab4);
+	SingleAnd16(a=a,b=b[5],out=ab5);
+	SingleAnd16(a=a,b=b[6],out=ab6);
+	SingleAnd16(a=a,b=b[7],out=ab7);
+	SingleAnd16(a=a,b=b[8],out=ab8);
+	SingleAnd16(a=a,b=b[9],out=ab9);
+	SingleAnd16(a=a,b=b[10],out=ab10);
+	SingleAnd16(a=a,b=b[11],out=ab11);
+	SingleAnd16(a=a,b=b[12],out=ab12);
+	SingleAnd16(a=a,b=b[13],out=ab13);
+	SingleAnd16(a=a,b=b[14],out=ab14);
+	SingleAnd16(a=a,b=b[15],out=ab15);
+	
+	GAdd16(a[0..14]=ab0,a[15]=false,b=ab1,cin=false,out[0]=out1[1],out[1..15]=r1s,cout=r1c);
+	GAdd16(a[0..14]=r1s,a[15]=r1c,b=ab2,cin=false,out[0]=out1[2],out[1..15]=r2s,cout=r2c);
+	GAdd16(a[0..14]=r2s,a[15]=r2c,b=ab3,cin=false,out[0]=out1[3],out[1..15]=r3s,cout=r3c);
+	GAdd16(a[0..14]=r3s,a[15]=r3c,b=ab4,cin=false,out[0]=out1[4],out[1..15]=r4s,cout=r4c);
+	GAdd16(a[0..14]=r4s,a[15]=r4c,b=ab5,cin=false,out[0]=out1[5],out[1..15]=r5s,cout=r5c);
+	GAdd16(a[0..14]=r5s,a[15]=r5c,b=ab6,cin=false,out[0]=out1[6],out[1..15]=r6s,cout=r6c);
+	GAdd16(a[0..14]=r6s,a[15]=r6c,b=ab7,cin=false,out[0]=out1[7],out[1..15]=r7s,cout=r7c);
+	GAdd16(a[0..14]=r7s,a[15]=r7c,b=ab8,cin=false,out[0]=out1[8],out[1..15]=r8s,cout=r8c);
+	GAdd16(a[0..14]=r8s,a[15]=r8c,b=ab9,cin=false,out[0]=out1[9],out[1..15]=r9s,cout=r9c);
+	GAdd16(a[0..14]=r9s,a[15]=r9c,b=ab10,cin=false,out[0]=out1[10],out[1..15]=r10s,cout=r10c);
+	GAdd16(a[0..14]=r10s,a[15]=r10c,b=ab11,cin=false,out[0]=out1[11],out[1..15]=r11s,cout=r11c);
+	GAdd16(a[0..14]=r11s,a[15]=r11c,b=ab12,cin=false,out[0]=out1[12],out[1..15]=r12s,cout=r12c);
+	GAdd16(a[0..14]=r12s,a[15]=r12c,b=ab13,cin=false,out[0]=out1[13],out[1..15]=r13s,cout=r13c);
+	GAdd16(a[0..14]=r13s,a[15]=r13c,b=ab14,cin=false,out[0]=out1[14],out[1..15]=r14s,cout=r14c);
+	GAdd16(a[0..14]=r14s,a[15]=r14c,b=ab15,cin=false,out[0]=out1[15],out[1..15]=out2[0..14],cout=out2[15]);
+}
