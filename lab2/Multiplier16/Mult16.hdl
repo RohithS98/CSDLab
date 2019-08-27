@@ -1,3 +1,8 @@
+/*
+*  Takes 2 16-bit integers and multiplies them(32-bit output)
+*  out1[0] is LSB, out2[15] is MSB
+*/
+
 CHIP Mult16{
 	IN a[16], b[16];
 	OUT out1[16], out2[16];
