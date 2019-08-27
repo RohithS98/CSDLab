@@ -1,0 +1,21 @@
+// This file is part of www.nand2tetris.org
+// and the book "The Elements of Computing Systems"
+// by Nisan and Schocken, MIT Press.
+// File name: projects/02/Adder16.hdl
+
+/**
+ * Adds two 32-bit values.
+ * The most significant carry bit is ignored.
+ */
+ 
+//Use 2 general adders for low and high 16 bits
+
+CHIP Add32 {
+    IN a1[16], a2[16], b1[16], b2[16];
+    OUT out1[16], out2[16];
+
+    PARTS:
+   // Put you code here:
+   GAdd16(a=a2,b=b2,cin=false,out=out2,cout=ctemp); 
+   GAdd16(a=a1,b=b1,cin=ctemp,out=out1,cout=c);
+}
