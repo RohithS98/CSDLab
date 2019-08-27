@@ -1,0 +1,14 @@
+/*
+*  Takes 2 16-bit values as input and a 1-bit control bit
+*  If control bit is 0, it performs addition, otherwise it performs subtraction
+*/
+
+CHIP AddSub16 {
+    IN a[16], b[16], control;
+    OUT out[16];
+
+    PARTS:
+   // Put you code here:
+   SingleXor16(a=b,b=control,out=btemp);
+   GAdd16(a=a,b=btemp,cin=control,out=out,cout=c);
+}
