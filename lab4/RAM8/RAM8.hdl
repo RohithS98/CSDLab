@@ -1,0 +1,19 @@
+/* 8x16bit RAM */
+
+CHIP RAM8{
+	IN in[16], load, addr[3];
+	OUT out[16];
+	
+	PARTS:
+	DMux8Way(in=load,sel=addr,a=r0,b=r1,c=r2,d=r3,e=r4,f=r5,g=r6,h=r7);
+	Reg16Bit(in=in,load=r0,out=o0);
+	Reg16Bit(in=in,load=r1,out=o1);
+	Reg16Bit(in=in,load=r2,out=o2);
+	Reg16Bit(in=in,load=r3,out=o3);
+	Reg16Bit(in=in,load=r4,out=o4);
+	Reg16Bit(in=in,load=r5,out=o5);
+	Reg16Bit(in=in,load=r6,out=o6);
+	Reg16Bit(in=in,load=r7,out=o7);
+	Mux8Way16(a=o0,b=o1,c=o2,d=o3,e=o4,f=o5,g=o6,h=o7,sel=addr,out=out);
+	
+}
