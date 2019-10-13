@@ -1,0 +1,12 @@
+@10
+D=A
+@25
+
+D=D+A
+D=D-A
+D=D&A
+D=D|A
+
+@END
+(END)
+0;JMP
