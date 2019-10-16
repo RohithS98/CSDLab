@@ -1,4 +1,9 @@
 //Stack pointer is R0
+//The following are pushed onto the stack
+//	1. Return address
+//	2. Address of return variable
+//	3. Value of a
+//	4. Value of m
 
 @100
 D=A
@@ -10,18 +15,16 @@ M=D
 
 (MOD_FUNC)
 	@R0
+	M=M-1
 	A=M
 	D=M
-	@R0
-	M=M-1
 	@mt
 	M=D
 	
 	@R0
+	M=M-1
 	A=M
 	D=M
-	@R0
-	M=M-1
 	@at
 	M=D
 	
@@ -47,16 +50,15 @@ M=D
 	@at
 	D=M
 	@R0
-	A=M
-	A=M
-	M=D
-	@R0
 	M=M-1
+	A=M
+	A=M
+	M=D	
 	
 	@R0
-	D=M
 	M=M-1
-	A=D
+	A=M
+	A=M
 	0;JMP
 
 (START)
@@ -68,3 +70,34 @@ A=M
 M=D
 @R0
 M=M+1
+
+@b
+D=A
+@R0
+A=M
+M=D
+@R0
+M=M+1
+
+@a
+D=M
+@R0
+A=M
+M=D
+@R0
+M=M+1
+
+@m
+D=M
+@R0
+A=M
+M=D
+@R0
+M=M+1
+
+@MOD_FUNC
+0;JMP
+
+(FUNCTION_RETURN)
+@FUNCTION_RETURN
+0;JMP
